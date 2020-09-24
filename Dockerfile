@@ -1,13 +1,12 @@
 FROM subodhhatkar/jenkins-jnlp-agent-openjdk:11.0.8-jre-slim-buster
 
 ARG AWSCLI_APP=awscli
-ARG AWSCLI_VERSION=2.0.41
 ARG AWSCLI_ARCH=linux-x86_64
 RUN wget https://awscli.amazonaws.com/${AWSCLI_APP}-exe-${AWSCLI_ARCH}.zip \
-    -O ${AWSCLI_APP}-${AWSCLI_VERSION}.zip && \
-    unzip ${AWSCLI_APP}-${AWSCLI_VERSION}.zip && \
+    -O ${AWSCLI_APP}.zip && \
+    unzip ${AWSCLI_APP}.zip && \
     ./aws/install && \
-    rm -rf ./aws ${AWSCLI_APP}-${AWSCLI_VERSION}.zip
+    rm -rf ./aws ${AWSCLI_APP}.zip
 
 ARG IAM_AUTH_APP=aws-iam-authenticator
 ARG IAM_AUTH_VERSION=v0.5.0
@@ -27,7 +26,7 @@ RUN wget https://get.helm.sh/${HELM_APP}-${HELM_VERSION}-${HELM_ARCH}.tar.gz \
     rm -rf ${HELM_APP}.tar.gz
 
 ARG K8S_APP=kubectl
-ARG K8S_VERSION=v1.18.8
+ARG K8S_VERSION=v1.19.0
 ARG K8S_ARCH=linux/amd64
 RUN wget https://storage.googleapis.com/kubernetes-release/release/${K8S_VERSION}/bin/${K8S_ARCH}/${K8S_APP} \
     -O ${K8S_APP} && \
