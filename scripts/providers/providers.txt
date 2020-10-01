@@ -1,4 +1,5 @@
-terraform-provider-aws:3.7.0
+terraform-provider-aws:3.8.0
+terraform-provider-external:1.2.0
 terraform-provider-kubernetes:1.13.2
 terraform-provider-null:2.1.2
 terraform-provider-random:2.3.0
