@@ -1,1 +1,1 @@
-# jenkins-jnlp-agent-awscli-helm-kubectl-terraform
+# jenkins-jnlp-agent-infra

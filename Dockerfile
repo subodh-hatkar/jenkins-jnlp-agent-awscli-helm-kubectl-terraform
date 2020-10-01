@@ -33,6 +33,15 @@ RUN wget https://storage.googleapis.com/kubernetes-release/release/${K8S_VERSION
     chmod +x ${K8S_APP} && \
     mv ${K8S_APP} /usr/local/bin/${K8S_APP}
 
+ARG MYSQL_APP=mysql
+ARG MYSQL_VERSION=8.0.20
+ARG MYSQL_ARCH=linux-x86_64-minimal
+RUN wget https://downloads.mysql.com/archives/get/p/23/file/${MYSQL_APP}-${MYSQL_VERSION}-${MYSQL_ARCH}.tar.xz && \
+    tar -xf ${MYSQL_APP}-${MYSQL_VERSION}-${MYSQL_ARCH}.tar.xz && \
+    cp ${MYSQL_APP}-${MYSQL_VERSION}-${MYSQL_ARCH}/bin/${MYSQL_APP} /usr/local/bin/ && \
+    chmod +x /usr/local/bin/${MYSQL_APP} && \
+    rm -rf ${MYSQL_APP}-${MYSQL_VERSION}-${MYSQL_ARCH}*
+
 ARG TF_APP=terraform
 ARG TF_VERSION=0.13.3
 ARG TF_ARCH=linux_amd64
