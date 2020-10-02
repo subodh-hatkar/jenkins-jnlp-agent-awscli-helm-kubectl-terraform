@@ -50,6 +50,3 @@ RUN wget https://releases.hashicorp.com/${TF_APP}/${TF_VERSION}/${TF_APP}_${TF_V
     unzip ${TF_APP}.zip && \
     mv ${TF_APP} /usr/local/bin/${TF_APP} && \
     rm -rf ${TF_APP}.zip
-
-COPY ./scripts /opt/scripts
-RUN /opt/scripts/installProviders.sh
