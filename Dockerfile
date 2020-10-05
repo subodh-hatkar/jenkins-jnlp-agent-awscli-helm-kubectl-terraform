@@ -9,7 +9,6 @@ RUN wget https://awscli.amazonaws.com/${AWSCLI_APP}-exe-${AWSCLI_ARCH}.zip \
     rm -rf ./aws ${AWSCLI_APP}.zip
 
 ARG IAM_AUTH_APP=aws-iam-authenticator
-ARG IAM_AUTH_VERSION=v0.5.0
 ARG IAM_AUTH_ARCH=linux/amd64
 RUN wget https://amazon-eks.s3.us-west-2.amazonaws.com/1.17.9/2020-08-04/bin/${IAM_AUTH_ARCH}/${IAM_AUTH_APP} \
     -O ${IAM_AUTH_APP} && \
@@ -17,7 +16,7 @@ RUN wget https://amazon-eks.s3.us-west-2.amazonaws.com/1.17.9/2020-08-04/bin/${I
     mv ${IAM_AUTH_APP} /usr/local/bin/${IAM_AUTH_APP}
 
 ARG HELM_APP=helm
-ARG HELM_VERSION=v3.3.0
+ARG HELM_VERSION=v3.3.4
 ARG HELM_ARCH=linux-amd64
 RUN wget https://get.helm.sh/${HELM_APP}-${HELM_VERSION}-${HELM_ARCH}.tar.gz \
     -O ${HELM_APP}.tar.gz && \
@@ -26,7 +25,7 @@ RUN wget https://get.helm.sh/${HELM_APP}-${HELM_VERSION}-${HELM_ARCH}.tar.gz \
     rm -rf ${HELM_APP}.tar.gz
 
 ARG K8S_APP=kubectl
-ARG K8S_VERSION=v1.19.0
+ARG K8S_VERSION=v1.19.2
 ARG K8S_ARCH=linux/amd64
 RUN wget https://storage.googleapis.com/kubernetes-release/release/${K8S_VERSION}/bin/${K8S_ARCH}/${K8S_APP} \
     -O ${K8S_APP} && \
@@ -43,7 +42,7 @@ RUN wget https://downloads.mysql.com/archives/get/p/23/file/${MYSQL_APP}-${MYSQL
     rm -rf ${MYSQL_APP}-${MYSQL_VERSION}-${MYSQL_ARCH}*
 
 ARG TF_APP=terraform
-ARG TF_VERSION=0.13.3
+ARG TF_VERSION=0.13.4
 ARG TF_ARCH=linux_amd64
 RUN wget https://releases.hashicorp.com/${TF_APP}/${TF_VERSION}/${TF_APP}_${TF_VERSION}_${TF_ARCH}.zip \
     -O ${TF_APP}.zip && \
