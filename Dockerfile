@@ -1,4 +1,4 @@
-FROM subodhhatkar/jenkins-jnlp-agent-openjdk:11.0.8-jre-slim-buster
+FROM subodhhatkar/jenkins-jnlp-agent-openjdk:4.6-1-jdk11
 
 ARG AWSCLI_APP=awscli
 ARG AWSCLI_ARCH=linux-x86_64
@@ -16,7 +16,7 @@ RUN wget https://amazon-eks.s3.us-west-2.amazonaws.com/1.17.9/2020-08-04/bin/${I
     mv ${IAM_AUTH_APP} /usr/local/bin/${IAM_AUTH_APP}
 
 ARG HELM_APP=helm
-ARG HELM_VERSION=v3.3.4
+ARG HELM_VERSION=v3.4.0
 ARG HELM_ARCH=linux-amd64
 RUN wget https://get.helm.sh/${HELM_APP}-${HELM_VERSION}-${HELM_ARCH}.tar.gz \
     -O ${HELM_APP}.tar.gz && \
@@ -42,7 +42,7 @@ RUN wget https://downloads.mysql.com/archives/get/p/23/file/${MYSQL_APP}-${MYSQL
     rm -rf ${MYSQL_APP}-${MYSQL_VERSION}-${MYSQL_ARCH}*
 
 ARG TF_APP=terraform
-ARG TF_VERSION=0.13.4
+ARG TF_VERSION=0.13.5
 ARG TF_ARCH=linux_amd64
 RUN wget https://releases.hashicorp.com/${TF_APP}/${TF_VERSION}/${TF_APP}_${TF_VERSION}_${TF_ARCH}.zip \
     -O ${TF_APP}.zip && \
@@ -51,7 +51,7 @@ RUN wget https://releases.hashicorp.com/${TF_APP}/${TF_VERSION}/${TF_APP}_${TF_V
     rm -rf ${TF_APP}.zip
 
 ARG VAULT_APP=vault
-ARG VAULT_VERSION=1.5.4
+ARG VAULT_VERSION=1.5.5
 ARG VAULT_ARCH=linux_amd64
 RUN wget https://releases.hashicorp.com/${VAULT_APP}/${VAULT_VERSION}/${VAULT_APP}_${VAULT_VERSION}_${VAULT_ARCH}.zip \
     -O ${VAULT_APP}.zip && \
