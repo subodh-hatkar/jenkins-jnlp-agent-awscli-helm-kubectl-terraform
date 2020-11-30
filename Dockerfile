@@ -10,13 +10,13 @@ RUN wget https://awscli.amazonaws.com/${AWSCLI_APP}-exe-${AWSCLI_ARCH}.zip \
 
 ARG IAM_AUTH_APP=aws-iam-authenticator
 ARG IAM_AUTH_ARCH=linux/amd64
-RUN wget https://amazon-eks.s3.us-west-2.amazonaws.com/1.17.9/2020-08-04/bin/${IAM_AUTH_ARCH}/${IAM_AUTH_APP} \
+RUN wget https://amazon-eks.s3.us-west-2.amazonaws.com/1.18.9/2020-11-02/bin/${IAM_AUTH_ARCH}/${IAM_AUTH_APP} \
     -O ${IAM_AUTH_APP} && \
     chmod +x ${IAM_AUTH_APP} && \
     mv ${IAM_AUTH_APP} /usr/local/bin/${IAM_AUTH_APP}
 
 ARG HELM_APP=helm
-ARG HELM_VERSION=v3.4.0
+ARG HELM_VERSION=v3.4.1
 ARG HELM_ARCH=linux-amd64
 RUN wget https://get.helm.sh/${HELM_APP}-${HELM_VERSION}-${HELM_ARCH}.tar.gz \
     -O ${HELM_APP}.tar.gz && \
@@ -25,7 +25,7 @@ RUN wget https://get.helm.sh/${HELM_APP}-${HELM_VERSION}-${HELM_ARCH}.tar.gz \
     rm -rf ${HELM_APP}.tar.gz
 
 ARG K8S_APP=kubectl
-ARG K8S_VERSION=v1.19.3
+ARG K8S_VERSION=v1.19.4
 ARG K8S_ARCH=linux/amd64
 RUN wget https://storage.googleapis.com/kubernetes-release/release/${K8S_VERSION}/bin/${K8S_ARCH}/${K8S_APP} \
     -O ${K8S_APP} && \
@@ -51,7 +51,7 @@ RUN wget https://releases.hashicorp.com/${TF_APP}/${TF_VERSION}/${TF_APP}_${TF_V
     rm -rf ${TF_APP}.zip
 
 ARG VAULT_APP=vault
-ARG VAULT_VERSION=1.5.5
+ARG VAULT_VERSION=1.6.0
 ARG VAULT_ARCH=linux_amd64
 RUN wget https://releases.hashicorp.com/${VAULT_APP}/${VAULT_VERSION}/${VAULT_APP}_${VAULT_VERSION}_${VAULT_ARCH}.zip \
     -O ${VAULT_APP}.zip && \
